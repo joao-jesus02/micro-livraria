@@ -4,11 +4,12 @@
     "description": "Toy example of microservice",
     "main": "",
     "scripts": {
-        "start": "run-p start-proxy start-frontend start-controller start-shipping start-inventory",
+        "start": "run-p start-proxy start-frontend start-controller start-shipping start-inventory start-review",
         "start-controller": "nodemon services/controller/index.js",
         "start-shipping": "nodemon services/shipping/index.js",
         "start-inventory": "nodemon services/inventory/index.js",
         "start-frontend": "serve -p 5000 services/frontend",
+        "start-review": "nodemon services/review/index.js",
         "start-proxy": "http-proxy -p 8080 /api=127.0.0.1:3000 127.0.0.1:5000",
         "exec": "run-p start-proxy start-frontend exec-controller exec-shipping exec-inventory",
         "exec-controller": "node services/controller/index.js",

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+service ReviewService {
+    rpc GetReviews(ProductId) returns (ReviewsResponse) {}
+    rpc AddReview(Review) returns (OperationResponse) {}
+}
+
+message ProductId {
+    int32 id = 1;
+}
+
+message Review {
+    int32 productId = 1;
+    string username = 2;
+    int32 rating = 3;
+    string comment = 4;
+    string date = 5;
+}
+
+message ReviewsResponse {
+    repeated Review reviews = 1;
+}
+
+message OperationResponse {
+    bool success = 1;
+    string message = 2;
+}
